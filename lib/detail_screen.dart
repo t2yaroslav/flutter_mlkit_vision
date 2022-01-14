@@ -57,6 +57,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
     List<String> emailStrings = [];
 
+    /*
     // Finding and storing the text String(s) and the TextElement(s)
     for (TextBlock block in text.textBlocks) {
       for (TextLine line in block.textLines) {
@@ -69,7 +70,7 @@ class _DetailScreenState extends State<DetailScreen> {
         }
       }
     }
-
+    */
     setState(() {
       _listEmailStrings = emailStrings;
     });
