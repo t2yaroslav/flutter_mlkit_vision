@@ -51,26 +51,28 @@ class _DetailScreenState extends State<DetailScreen> {
     final text = await _textDetector.processImage(inputImage);
 
     // Pattern of RegExp for matching a general email address
+
+    /*
     String pattern =
         r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
     RegExp regEx = RegExp(pattern);
+     */
 
     List<String> emailStrings = [];
 
-    /*
     // Finding and storing the text String(s) and the TextElement(s)
-    for (TextBlock block in text.textBlocks) {
-      for (TextLine line in block.textLines) {
-        print('text: ${line.lineText}');
-        if (regEx.hasMatch(line.lineText)) {
-          emailStrings.add(line.lineText);
-          for (TextElement element in line.textElements) {
-            _elements.add(element);
-          }
+    for (TextBlock block in text.blocks) {
+      for (TextLine line in block.lines) {
+        print('text: ${line.text}');
+        //if (regEx.hasMatch(line.text)) {
+        emailStrings.add(line.text);
+        for (TextElement element in line.elements) {
+          _elements.add(element);
         }
+        //}
       }
     }
-    */
+
     setState(() {
       _listEmailStrings = emailStrings;
     });
